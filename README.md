@@ -48,6 +48,8 @@ It's not a Laravel adaptation of SOLID principles, patterns etc. Here you'll fin
 
 [Other good practices](#other-good-practices)
 
+[Lesser known laravel methods](#lesser-laravel-methods)
+
 ### **Single responsibility principle**
 
 A class and a method should have only one responsibility.
@@ -591,5 +593,32 @@ public function getSomeDateAttribute($date)
 Never put any logic in routes files.
 
 Minimize usage of vanilla PHP in Blade templates.
+
+[🔝 Back to contents](#contents)
+
+### **Lesser known laravel methods**
+
+1. ### optional()
+It is useful when you don't know if something will have a value or not. I have used it in the past when dealing with an Eloquent row's relation - it might not exist. Rather than wrap some code in if/else, you can do something like this:
+
+```php
+    $blogPost = BlogPost::first();
+    echo "<div class='author_box'>"
+         . optional($blogPost->author)->name
+        . "</div>";
+(simplified example... but it would either print the author name, or nothing)
+```
+
+2. Different **log** functions - Use `logger(), info()` instead of `log::info()
+3. ### str_plural()
+Sometimes you need to output something like "5 active posts" (plural), or "1 active post" (singular). You can write some quick if/else logic and handle it that way. Or use str_plural().
+
+```php
+    $my_bottles = [1,2,3];
+    echo "I have " . count($my_bottles). " " . str_plural('bottle', count($my_bottles));
+ 
+    $your_bottles = [1];
+    echo "You have " . count($your_bottles). " " . str_plural('bottle', count($your_bottles));
+```
 
 [🔝 Back to contents](#contents)
