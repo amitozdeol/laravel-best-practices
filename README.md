@@ -48,7 +48,7 @@ It's not a Laravel adaptation of SOLID principles, patterns etc. Here you'll fin
 
 [Other good practices](#other-good-practices)
 
-[Lesser known laravel methods](#lesser-laravel-methods)
+[Lesser known laravel methods](#lesser-known-laravel-methods)
 
 ### **Single responsibility principle**
 
